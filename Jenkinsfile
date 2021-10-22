@@ -7,5 +7,14 @@ pipeline {
                 sh './mvnw package'
             }
         }
+        stage('Copy Archive') {
+         steps {
+             script {
+                step ([$class: 'CopyArtifact',
+                    projectName: 'Petclinic',
+                    filter: "target/*.jar",
+                    target: '/var/lib/jars']);
+            }
+        }
     }
 }
