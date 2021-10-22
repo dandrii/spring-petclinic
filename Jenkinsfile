@@ -13,8 +13,11 @@ pipeline {
                 step ([$class: 'CopyArtifact',
                     projectName: 'Petclinic',
                     filter: "target/*.jar",
-                    target: '/var/lib/jars']);
+                 }    target: '/var/lib/jars']);
             }
         }
     }
-}
+    
+ }
+
+
