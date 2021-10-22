@@ -11,7 +11,7 @@ pipeline {
                    onlyIfSuccessful: true
             }
         }
-        /*stage('Copy Archive') {
+        stage('Copy Archive') {
             steps {
                 script {
                    step ([$class: 'CopyArtifact',
@@ -20,7 +20,7 @@ pipeline {
                    target: '/var/lib/jars']);
                 }
             }
-        }*/
+        }
     }
     
  }
