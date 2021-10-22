@@ -5,8 +5,7 @@ pipeline {
             steps {
                 sh './mvnw package'
                 echo 
-                echo
-            }
+              }
         }
     }
 }
