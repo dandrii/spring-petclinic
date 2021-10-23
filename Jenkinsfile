@@ -16,7 +16,7 @@ pipeline {
                 script {
                    step ([$class: 'CopyArtifact',
                    projectName: '${JOB_NAME}',
-                   filter: '*.jar',
+                   filter: 'target/*.jar',
                    target: '/var/lib/jars']);
                 }
             }
