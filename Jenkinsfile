@@ -20,7 +20,7 @@ pipeline {
                 }
             }
         }
-        stage('Build Docker Image') {
+        stage('Create Artifact') {
             when {
                 branch 'main'
             }
@@ -28,12 +28,6 @@ pipeline {
                 script {
                     app = docker.build("petclinic")
                 }
-            }
-            stage('Push Docker Image') {
-            when {
-                branch 'master'
-            }
-            steps {
                 script {
                     docker.withRegistry('http://18.157.160.96:5000/', 'docker_trusted_reg') {
                         app.push("${env.BUILD_NUMBER}")
