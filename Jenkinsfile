@@ -19,6 +19,7 @@ pipeline {
                    selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']]);
                 }
             }
+        }
         stage('Build Docker Image') {
             when {
                 branch 'main'
