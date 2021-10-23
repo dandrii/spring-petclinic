@@ -29,7 +29,7 @@ pipeline {
                     app = docker.build("petclinic")
                 }
                 script {
-                    docker.withRegistry('http://18.157.160.96:5000/', 'docker_trusted_reg') {
+                    docker.withRegistry('https://18.157.160.96:5000/', 'docker_trusted_reg') {
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
