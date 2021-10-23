@@ -28,8 +28,8 @@ pipeline {
                 script {
                     app = docker.build("Petclinic")
                     /*app.inside {
-                        sh 'echo $(curl localhost:8080)'*/
-                    }
+                        sh 'echo $(curl localhost:8080)'
+                    }*/
                 }
             }           
         }
