@@ -15,7 +15,7 @@ pipeline {
                    step ([$class: 'CopyArtifact',
                    projectName: '${JOB_NAME}',
                    filter: 'target/*.jar',
-                   target: '/var/lib/jars'
+                   target: '/var/lib/jars',
                    selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']]);
                 }
             }
