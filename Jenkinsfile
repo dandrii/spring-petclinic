@@ -26,7 +26,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("petclinic")
+                    app = docker.build("adoronin1/petclinic")
                 }
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_trusted_reg') {
