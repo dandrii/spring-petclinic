@@ -27,11 +27,21 @@ pipeline {
             steps {
                 script {
                     app = docker.build("petclinic")
-                    /*app.inside {
-                        sh 'echo $(curl localhost:8080)'
-                    }*/
                 }
-            }           
-        }
+            }
+            stage('Push Docker Image') {
+            when {
+                branch 'master'
+            }
+            steps {
+                script {
+                    docker.withRegistry('http://18.157.160.96:5000/', 'docker_trusted_reg') {
+                        app.push("${env.BUILD_NUMBER}")
+                        app.push("latest")
+                    }
+                }
+            }
+        }           
+        
     }    
 }
