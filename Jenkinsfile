@@ -14,6 +14,7 @@ pipeline {
                 script {
                    step ([$class: 'CopyArtifact',
                    projectName: '${JOB_NAME}',
+                   buildSelector '${latestSuccessful(true)}'
                    filter: 'target/*.jar',
                    target: '/var/lib/jars']);
                 }
