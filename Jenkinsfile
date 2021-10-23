@@ -4,7 +4,7 @@ pipeline {
         stage ('Build') {
             steps {
                 echo 'Building...'
-                *sh './mvnw package'
+                sh './mvnw package'
                 echo 'Archiving...'
                 archiveArtifacts artifacts: '**/*.jar',
                    allowEmptyArchive: true,
