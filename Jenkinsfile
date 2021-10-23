@@ -19,7 +19,20 @@ pipeline {
                    selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']]);
                 }
             }
+        stage('Build Docker Image') {
+            when {
+                branch 'master'
+            }
+            steps {
+                script {
+                    app = docker.build("petclinic/latest")
+                    app.inside {
+                        sh 'echo $(curl localhost:8080)'
+                    }
+                }
+            }           
         }
+
     }
     
  }
