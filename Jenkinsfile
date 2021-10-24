@@ -38,14 +38,17 @@ pipeline {
         }*/
         stage('DEPLOY') {
            steps {
-                sh 'cd /home/ec2-user/terraform'
-                sh 'terraform init'
-                sh 'terraform plan'
-                script {
-                    def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
+                dir("${env.terraformdir}") {
+                    sh 'terraform init'
+                    sh 'terraform plan'
+                    script {
+                        def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
+                    }
+                    sh 'terraform apply -input=false'
                 }
-                sh 'terraform apply -input=false'
-           }           
+
+           
+            }      
         }
     }    
 }
