@@ -38,6 +38,7 @@ pipeline {
         }*/
         stage('DEPLOY') {
            steps {
+                sh 'cd /home/ec2-user/terraform'
                 sh 'terraform init'
                 sh 'terraform plan'
                 script {
