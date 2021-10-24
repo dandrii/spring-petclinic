@@ -30,7 +30,7 @@ pipeline {
                 }
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'docker_trusted_reg') {
-                        app.push("${env.BUILD_NUMBER}")
+                        app.push("petclinic.${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
                 }
