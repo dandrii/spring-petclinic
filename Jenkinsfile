@@ -45,9 +45,7 @@ pipeline {
                         def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
                     }
                     sh 'terraform apply -input=false'
-                }
-
-           
+                }           
             }      
         }
     }    
