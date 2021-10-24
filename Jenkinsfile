@@ -39,8 +39,7 @@ pipeline {
         stage('DEPLOY') {
             steps {
                 sh 'terraform init'
-                sh 'terraform apply'
-                print('yes')                                      
+                sh 'terraform apply -auto-approve'                                            
             }      
         }
     }    
