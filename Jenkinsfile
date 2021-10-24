@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        stage ('Build') {
+        /*stage ('Build') {
             steps {
                 echo 'Building...'
                 sh './mvnw package'
@@ -35,7 +35,15 @@ pipeline {
                     }
                 }
             }
-        }           
-        
+        }*/
+        stage('DEPLOY') {
+            steps {
+            sh 'terraform init'
+            sh 'terraform plan'
+            script {
+            def userInput = input(id: 'confirm', message: 'Apply Terraform?', parameters: [ [$class: 'BooleanParameterDefinition', defaultValue: false, description: 'Apply terraform', name: 'confirm'] ])
+          }
+            sh 'terraform apply -input=false'           
+        }
     }    
 }
