@@ -1,8 +1,8 @@
 FROM openjdk:11
 WORKDIR /var/lib/jars/target
+RUN chmod 777 /app/*.jar
 COPY . /app
 WORKDIR /app
-RUN chmod 777 /app/*.jar
 
 EXPOSE 8080
 
