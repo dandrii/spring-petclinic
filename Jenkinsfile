@@ -6,7 +6,7 @@ pipeline {
                 echo 'Building...'
                 sh './mvnw package'
                 echo 'Archiving...'
-                archiveArtifacts artifacts: '.jar',
+                archiveArtifacts artifacts: '**/*.jar',
                    allowEmptyArchive: true,
                    fingerprint: true,
                    onlyIfSuccessful: true
