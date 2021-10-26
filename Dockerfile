@@ -5,4 +5,4 @@ WORKDIR /app
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "spring-petclinic-2.5.0-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","spring-petclinic-2.5.0-SNAPSHOT.jar"] CMD ["-start"]
