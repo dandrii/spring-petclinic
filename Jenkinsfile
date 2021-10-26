@@ -18,7 +18,7 @@ pipeline {
                    target: '/var/lib/jars',
                    selector: [$class: 'SpecificBuildSelector', buildNumber: '${BUILD_NUMBER}']]);
                 }
-                sh 'chmod 777 /var/lib/jars/*.jar'
+                sh 'chmod 777 /var/lib/jars/target/*.jar'
             }
         }
         stage('Create Artifact') {
