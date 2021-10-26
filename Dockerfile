@@ -1,6 +1,6 @@
 FROM openjdk:11
 WORKDIR /var/lib/jars/target
-RUN chmod 777 /app/*.jar
+RUN chmod 777 *.jar
 COPY . /app
 WORKDIR /app
 
