@@ -1,7 +1,7 @@
 pipeline {
     agent any
     stages {
-        /*stage ('Build') {
+        stage ('Build') {
             steps {
                 echo 'Building...'
                 sh './mvnw package'
@@ -35,13 +35,13 @@ pipeline {
                     }
                 }
             }
-        }*/
-        stage('DEPLOY') {
+        }
+        /*stage('DEPLOY') {
             steps {
                 sh 'terraform destroy -auto-approve'
                 sh 'terraform init'
                 sh 'terraform apply -auto-approve'                                            
             }      
-        }
+        }*/
     }    
 }
