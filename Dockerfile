@@ -2,6 +2,7 @@ FROM openjdk:11
 WORKDIR /var/lib/jars/target
 COPY . /app
 WORKDIR /app
+RUN chown -R docker:docker spring-petclinic-2.5.0-SNAPSHOT.jar
 
 EXPOSE 8080
 
