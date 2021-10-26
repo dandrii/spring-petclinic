@@ -36,12 +36,12 @@ pipeline {
                 }
             }
         }
-        /*stage('DEPLOY') {
+        stage('DEPLOY') {
             steps {
                 sh 'terraform destroy -auto-approve'
                 sh 'terraform init'
                 sh 'terraform apply -auto-approve'                                            
             }      
-        }*/
+        }
     }    
 }
