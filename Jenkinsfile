@@ -1,10 +1,10 @@
-pipeline {
-    agent any
 // Import the JsonSlurper class to parse Dockerhub API response
 import groovy.json.JsonSlurper
 
 // Set the URL we want to read from, it is MySQL from official Library for this example, limited to 20 results only.
 docker_image_tags_url = 'https://hub.docker.com/v2/repositories/adoronin1/petclinic/tags?page_size=20'
+pipeline {
+    agent any
 try {
     // Set requirements for the HTTP GET request, you can add Content-Type headers and so on...
     def http_client = new URL(docker_image_tags_url).openConnection() as HttpURLConnection
