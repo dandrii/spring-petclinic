@@ -22,9 +22,6 @@ pipeline {
             }
         }
         stage('Create Artifact') {
-            when {
-                branch 'main'
-            }
             steps {
                 script {
                     app = docker.build("${env.dhublog}/petclinic")
