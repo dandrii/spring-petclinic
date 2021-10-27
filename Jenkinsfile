@@ -4,6 +4,7 @@ pipeline {
         stage ('Build') {
             steps {
                 echo 'Building...'
+                sh 'rm -r var/lib/jenkins/workspace/Project_main/.terraform'
                 sh './mvnw package'
                 echo 'Archiving...'
                 archiveArtifacts artifacts: '**/*.jar',
