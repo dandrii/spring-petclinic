@@ -1,10 +1,4 @@
-pipeline {
-    agent any
-    stages {
-        stage ('Build') {
-            steps {
-            echo 'Building!!!'
-            // Import the JsonSlurper class to parse Dockerhub API response
+           // Import the JsonSlurper class to parse Dockerhub API response
             import groovy.json.JsonSlurper
             // Set the URL we want to read from, it is MySQL from official Library for this example, limited to 20 results only.
             docker_image_tags_url = "https://hub.docker.com/v2/repositories/adoronin1/petclinic/tags?page_size=20"
@@ -36,6 +30,12 @@ pipeline {
              // handle exceptions like timeout, connection errors, etc.
              println(e)
             }
+            pipeline {
+    agent any
+    stages {
+        stage ('Build') {
+            steps {
+            echo 'Building!!!'
         }
     }
 }
