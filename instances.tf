@@ -8,7 +8,7 @@ data "aws_ssm_parameter" "PetclinicAmi" {
 resource "aws_key_pair" "master-key" {
   provider   = aws.region-master
   key_name   = "petclinic-qa"
-  public_key = file("~/.ssh/jkeys/id_rsa.pub")
+  public_key = file("/home/jenkins/.ssh/jkeys/id_rsa.pub")
 }
 
 #Create and bootstrap EC2 in eu-central-1
