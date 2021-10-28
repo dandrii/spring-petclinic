@@ -3,7 +3,6 @@ pipeline {
         stage ('Build') {
             steps {
                 echo 'Building!!!'
-                
             }
         }
     }
