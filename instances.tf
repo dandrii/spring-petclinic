@@ -7,7 +7,7 @@ data "aws_ssm_parameter" "PetclinicAmi" {
 #Create key-pair for logging into EC2 in eu-central-1
 resource "aws_key_pair" "master-key" {
   provider   = aws.region-master
-  key_name   = "petclinic"
+  key_name   = "petclinic-qa"
   public_key = file("~/.ssh/id_rsa.pub")
 }
 
