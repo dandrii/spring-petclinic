@@ -66,6 +66,9 @@
 
     - name: Pull img
       docker_image:
-        name: "{{ $image }}"
+        name: "{{ $images }}"
         repository: adoronin1/petclinic
+      vars:
+        images:
+         - "{{ $image }}"
       
