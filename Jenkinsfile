@@ -4,7 +4,11 @@ pipeline {
         stage ('Build') {
             steps {
                 echo 'Building...'
-                sh 'rm -r ./.terraform'
+                script {
+                    if [ -d ./terraform ]; then {
+                        rm -r ./.terraform
+                    }
+                }
                 sh './mvnw package'
                 echo 'Archiving...'
                 archiveArtifacts artifacts: '**/*.jar',
