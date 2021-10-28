@@ -4,6 +4,7 @@ pipeline {
         stage ('Build') {
             steps {
                 echo 'Building...'
+                sh 'chmod +x check.sh'
                 sh './check.sh'  
                 sh './mvnw package'
                 echo 'Archiving...'
