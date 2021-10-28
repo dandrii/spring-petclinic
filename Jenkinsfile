@@ -4,8 +4,7 @@ pipeline {
         stage ('Build') {
             steps {
                 echo 'Building!!!'
-                print "DEBUG: parameter foo
-                 = ${img-ver}"
+                print "DEBUG: parameter foo = ${img-ver}"
             }
         }
     }
