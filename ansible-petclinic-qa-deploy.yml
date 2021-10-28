@@ -1,6 +1,8 @@
 ##Ansible petclinic deploy
 ---
 - hosts: "{{ passed_in_hosts }}"
+  vars: 
+    image: "{{ $image }}"
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -66,9 +68,5 @@
 
     - name: Pull img
       docker_image:
-        name: "{{ $images }}"
+        name: "{{ image }}"
         repository: adoronin1/petclinic
-      vars:
-        images:
-         - "{{ $image }}"
-      
