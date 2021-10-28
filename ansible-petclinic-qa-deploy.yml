@@ -67,7 +67,7 @@
         - docker-compose
 
     - name: Pull img
-      command: docker pull adoronin1/petclinic: {{ image }}
+      command: 'docker pull adoronin1/petclinic:"{{ image }}"'
 
     - name: Run img
-      command: docker run -d -p 8080:8080 -i adoronin1/petclinic: {{ image }}
+      command: 'docker run -d -p 8080:8080 -i adoronin1/petclinic:"{{ image }}"'
