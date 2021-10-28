@@ -4,7 +4,7 @@ pipeline {
         stage ('Build') {
             steps {
                 echo 'Building!!!'
-                echo "${params.img-ver}"
+                echo '${img-ver}'
             }
         }
     }
